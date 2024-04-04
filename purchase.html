@@ -16,8 +16,28 @@
   <title>Prices Table</title>
 </head>
 <body>
-  <div class="container page-wrapper">
-    
+  <div class="container purchase-wrapper">
+    <div class="form-wrapper">
+      <div class="mb-3">
+        <label for="storeName" class="form-label">Store Name</label>
+        <input disabled type="text" class="form-control" id="storeName">
+      </div>      
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input disabled type="text" class="form-control" id="price">
+      </div>      
+      <div class="mb-3">
+        <label for="creditCard" class="form-label">Credit Card</label>
+        <input type="text" class="form-control" id="creditCard" placeholder="XXXX-XXXX-XXXX-XXXX">
+      </div>      
+      <div class="mb-3">
+        <label for="expirationDate" class="form-label">Expiration Date</label>
+        <input type="text" class="form-control" id="expirationDate" placeholder="MM/YY">
+      </div>
+      <button type="submit" class="btn btn-success mt-3">Send</button>
+    </div>
   </div>
+
+  <script src="./js/purchase.js"></script>
 </body>
 </html>

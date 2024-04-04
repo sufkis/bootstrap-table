@@ -22,3 +22,32 @@
 .btn-danger {
   margin-right: 10px;
 }
+
+.info-wrapper {
+  height: 250px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  width: 200px; height: 100%;
+  padding: 20px;
+}
+
+.purchase-wrapper {
+  margin-top: 100px;
+}
+
+.form-wrapper {
+  margin: 0 auto;
+  width: 50%;
+  padding: 80px 30px;
+  border: 1px solid darkcyan;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.205);
+}
+
+.btn-success {
+  width: 120px;
+}

@@ -36,13 +36,19 @@
         <tbody id="table-body">
         </tbody>
       </table>
-      <!-- <button type="button" onclick="populateTable()">GO</button> -->
+    </div>
+    <div class="container info-wrapper">
+      <div class="card">
+        <button type="button" class="btn btn-info" onclick="handleOnAverage()">Average</button>
+        <h1 id="average"></h1>
+      </div>
+      <div class="card">
+        <button type="button" class="btn btn-warning" onclick="handleOnBest()">Best Offer</button>
+        <h1 id="best"></h1>
+      </div>
     </div>
   </div>
 
   <script src="./js/index.js"></script>
-  <!-- <script>
-    (() => populateTable())()
-  </script> -->
 </body>
 </html>

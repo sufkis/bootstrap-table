@@ -1,4 +1,6 @@
 const tableBody = document.getElementById('table-body');
+const avgTitle = document.querySelector('#average');
+const bestTitle = document.querySelector('#best');
 const storeList = [
   {
     name: "City Deal",
@@ -74,12 +76,18 @@ const populateTable = () => {
     if (!item.rating) {
       item.rating = getRandomNumber(1, 5);
     }
-    const row = createTableRow(item, index);
+    const row = createTableRow(item);
     tableBody.appendChild(row);
-  })
+  });
+  if (avgTitle.textContent) {
+    handleOnAverage();
+  }
+  if (bestTitle.textContent) {
+    handleOnBest();
+  }
 };
 
-const createTableRow = (row, index) => {
+const createTableRow = (row) => {
   const tableRow = document.createElement('tr');
   const rowNumber = document.createElement('th');
   rowNumber.setAttribute('scope', 'row');
@@ -125,7 +133,7 @@ const createTableRow = (row, index) => {
   buyButton.setAttribute('type', 'button');
   buyButton.classList.add('btn', 'btn-primary');
   buyButton.textContent = 'Buy';
-  buyButton.addEventListener('click', () => handleOnBuy(row.name));
+  buyButton.addEventListener('click', () => handleOnBuy(row.name, row.price));
   optionsCell.appendChild(deleteButton);
   optionsCell.appendChild(buyButton);
   tableRow.appendChild(optionsCell);
@@ -137,8 +145,25 @@ const handleOnDelete = (name) => {
   populateTable();
 };
 
-const handleOnBuy = () => {
-  console.log('BUY');
+const handleOnBuy = (name, price) => {
+  window.open(`/purchase.html?name=${name}&price=${price}`, 'newwindow');
+};
+
+const handleOnAverage = () => {
+  if (!displayedList.length) {
+    return avgTitle.textContent = '';
+  }
+  const average = displayedList.map(a => +a.price).reduce((a, b) => (a + b)) / displayedList.length;
+  avgTitle.textContent = parseFloat(average).toFixed(2);
+};
+
+const handleOnBest = () => {
+  const bestPrices = displayedList.filter(row => row.rating >= 4).map(row => row.price);
+  if (!bestPrices.length) {
+    return bestTitle.textContent = '';
+  }
+  const best = Math.min(...bestPrices);
+  bestTitle.textContent = best;
 };
 
 const clearTable = () => {
